@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Task Tracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1f2a36, #2c3e50);
+    }
+
+    .login-card {
+        width: 340px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    .login-card h2 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    /* 🔥 FIX IS HERE */
+    .login-card input {
+        width: 85%;              /* instead of 100% */
+        margin: 10px auto;
+        display: block;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: 0.2s;
+    }
+
+    .login-card input:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52,152,219,0.4);
+    }
+
+    .login-card button {
+        width: 85%;              /* match input width */
+        padding: 12px;
+        background: #3498db;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    .login-card button:hover {
+        background: #2980b9;
+        transform: scale(1.03);
+    }
+
+    .login-card p {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .login-card a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <h2>Welcome Back 👋</h2>
+
+    <input type="email" id="email" placeholder="Enter Email">
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+    <p>
+        Don't have an account?
+        <a href="register.html">Register</a>
+    </p>
+
+</div>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>
