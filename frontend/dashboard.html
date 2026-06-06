@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .dashboard {
+            display: flex;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            background: #1f2a36;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* MAIN */
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* COUNTERS */
+        .stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* INPUT AREA */
+        .task-input {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .task-input input,
+        .task-input select {
+            padding: 10px;
+        }
+
+        .task-input button {
+            padding: 10px 15px;
+            background: #3498db;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* FILTER BUTTONS */
+        .filters {
+            margin-bottom: 15px;
+        }
+
+        .filters button {
+            margin-right: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* TASK CARD */
+        .task-box {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-group button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Task Tracker</h2>
+        <p>Welcome</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <h1>My Tasks</h1>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="card">
+                <h3 id="totalTasks">0</h3>
+                <p>Total</p>
+            </div>
+
+            <div class="card">
+                <h3 id="completedTasks">0</h3>
+                <p>Completed</p>
+            </div>
+
+            <div class="card">
+                <h3 id="pendingTasks">0</h3>
+                <p>Pending</p>
+            </div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="task-input">
+
+            <input type="text" id="taskTitle" placeholder="Enter task">
+
+            <input type="datetime-local" id="dueDate">
+
+            <select id="priority">
+                <option value="low">🟢 Low</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="high">🔴 High</option>
+            </select>
+
+            <button onclick="addTask()">Add Task</button>
+
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <button onclick="setFilter('all')">All</button>
+            <button onclick="setFilter('active')">Active</button>
+            <button onclick="setFilter('completed')">Completed</button>
+        </div>
+
+        <!-- TASK LIST -->
+        <div id="taskList"></div>
+
+    </div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
